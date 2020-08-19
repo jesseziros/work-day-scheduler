@@ -33,31 +33,31 @@
     <div class="container">
       <!-- Timeblocks go here -->
         <div class="row">
-            <p class="hour">9am</p> <input class="time-block"> <button class="saveBtn" data-name="time-block9"></button>
+            <p class="hour" id="9">9am</p> <input class="time-block"> <button class="saveBtn" data-name="time-block9"></button>
         </div>
         <div class="row">
-            <p class="hour">10am</p> <input class="time-block"> <button class="saveBtn" data-name="time-block10"></button>
+            <p class="hour" id="10">10am</p> <input class="time-block"> <button class="saveBtn" data-name="time-block10"></button>
         </div>
         <div class="row">
-           <p class="hour">11am</p> <input class="time-block"> <button class="saveBtn" data-name="time-block11"></button>
+           <p class="hour" id="11">11am</p> <input class="time-block"> <button class="saveBtn" data-name="time-block11"></button>
         </div>
         <div class="row">
-            <p class="hour"> 12am</p> <input class="time-block"> <button class="saveBtn" data-name="time-block12"></button>
+            <p class="hour" id="12"> 12am</p> <input class="time-block"> <button class="saveBtn" data-name="time-block12"></button>
         </div>
         <div class="row">
-            <p class="hour">1pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block1"></button>
+            <p class="hour" id="13">1pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block1"></button>
         </div>
         <div class="row">
-            <p class="hour">2pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block2"></button>
+            <p class="hour" id="14">2pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block2"></button>
         </div>
         <div class="row">
-            <p class="hour">3pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block3"></button>
+            <p class="hour" id="15">3pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block3"></button>
         </div>
         <div class="row">
-            <p class="hour">4pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block4"></button>
+            <p class="hour" id="16">4pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block4"></button>
         </div>
         <div class="row">
-            <p class="hour">5pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block5"></button>
+            <p class="hour" id="17">5pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block5"></button>
         </div>
         
     </div>
@@ -67,7 +67,8 @@
       var mm = String(today.getMonth() + 1).padStart(2, '0'); 
       var yyyy = today.getFullYear();
       var hour = today.getHours();
-      today = mm + '/' + dd + '/' + yyyy + '/' + hour;
+
+      today = mm + '/' + dd + '/' + yyyy;
       document.write(today);
       $("#currentDay").append(today);
 
@@ -78,12 +79,7 @@
           console.log(`${targetElement}: ${newVal}`);
       });
 
-      function myFunction() {
-        var d = new Date();
-        var n = d.getHours();
-        document.getElementById("demo").innerHTML = n;
-        console.log(myFunction)
-      };
+      
   </script>
   </body>
 </html>
