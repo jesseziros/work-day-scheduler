@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -30,10 +32,58 @@
     </header>
     <div class="container">
       <!-- Timeblocks go here -->
-      
+        <div class="row">
+            <p class="hour">9am</p> <input class="time-block"> <button class="saveBtn" data-name="time-block9"></button>
+        </div>
+        <div class="row">
+            <p class="hour">10am</p> <input class="time-block"> <button class="saveBtn" data-name="time-block10"></button>
+        </div>
+        <div class="row">
+           <p class="hour">11am</p> <input class="time-block"> <button class="saveBtn" data-name="time-block11"></button>
+        </div>
+        <div class="row">
+            <p class="hour"> 12am</p> <input class="time-block"> <button class="saveBtn" data-name="time-block12"></button>
+        </div>
+        <div class="row">
+            <p class="hour">1pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block1"></button>
+        </div>
+        <div class="row">
+            <p class="hour">2pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block2"></button>
+        </div>
+        <div class="row">
+            <p class="hour">3pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block3"></button>
+        </div>
+        <div class="row">
+            <p class="hour">4pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block4"></button>
+        </div>
+        <div class="row">
+            <p class="hour">5pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block5"></button>
+        </div>
+        
     </div>
+    <script>
+      var today = new Date();
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+      var yyyy = today.getFullYear();
+      var hour = today.getHours();
+      today = mm + '/' + dd + '/' + yyyy + '/' + hour;
+      document.write(today);
+      $("#currentDay").append(today);
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+      $(document).on("click", ".saveBtn", function(event) {
+          event.preventDefault();
+          var targetElement = $(this).attr("data-name");
+          var newVal = $(`#${targetElement}`).val();
+          console.log(`${targetElement}: ${newVal}`);
+      });
+
+      function myFunction() {
+        var d = new Date();
+        var n = d.getHours();
+        document.getElementById("demo").innerHTML = n;
+        console.log(myFunction)
+      };
+  </script>
   </body>
 </html>
