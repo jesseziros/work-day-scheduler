@@ -33,32 +33,32 @@
     <div class="container">
       <!-- Timeblocks go here -->
         <div class="row">
-            <p class="hour" id="9">9am</p> <input class="time-block"> <button class="saveBtn" data-name="time-block9"></button>
+            <p class="hour col-1">9am</p> <input class="time-block col-10" id="time-block9" data-hour="9"> <button class="saveBtn col-1" data-name="time-block9"><i class="fa fa-save"></i></button>
         </div>
         <div class="row">
-            <p class="hour" id="10">10am</p> <input class="time-block"> <button class="saveBtn" data-name="time-block10"></button>
+            <p class="hour col-1">10am</p> <input class="time-block col-10" id="time-block10" data-hour="10"> <button class="saveBtn col-1" data-name="time-block10"><i class="fa fa-save"></i></button>
         </div>
         <div class="row">
-           <p class="hour" id="11">11am</p> <input class="time-block"> <button class="saveBtn" data-name="time-block11"></button>
+           <p class="hour col-1">11am</p> <input class="time-block col-10" id="time-block11" data-hour="11"> <button class="saveBtn col-1" data-name="time-block11"><i class="fa fa-save"></i></button>
         </div>
         <div class="row">
-            <p class="hour" id="12"> 12am</p> <input class="time-block"> <button class="saveBtn" data-name="time-block12"></button>
+            <p class="hour col-1"> 12am</p> <input class="time-block col-10" id="time-block12" data-hour="12"> <button class="saveBtn col-1" data-name="time-block12"><i class="fa fa-save"></i></button>
         </div>
         <div class="row">
-            <p class="hour" id="13">1pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block1"></button>
+            <p class="hour col-1">1pm</p> <input class="time-block col-10" id="time-block13" data-hour="13"> <button class="saveBtn col-1" data-name="time-block13"><i class="fa fa-save"></i></button>
         </div>
         <div class="row">
-            <p class="hour" id="14">2pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block2"></button>
+            <p class="hour col-1">2pm</p> <input class="time-block col-10" id="time-block14" data-hour="14"> <button class="saveBtn col-1" data-name="time-block14"><i class="fa fa-save"></i></button>
         </div>
         <div class="row">
-            <p class="hour" id="15">3pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block3"></button>
+            <p class="hour col-1">3pm</p> <input class="time-block col-10" id="time-block15" data-hour="15"> <button class="saveBtn col-1" data-name="time-block15"><i class="fa fa-save"></i></button>
         </div>
         <div class="row">
-            <p class="hour" id="16">4pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block4"></button>
+            <p class="hour col-1">4pm</p> <input class="time-block col-10" id="time-block16" data-hour="16"> <button class="saveBtn col-1" data-name="time-block16"><i class="fa fa-save"></i></button>
         </div>
         <div class="row">
-            <p class="hour" id="17">5pm</p> <input class="time-block"> <button class="saveBtn" data-name="time-block5"></button>
-        </div>
+            <p class="hour col-1">5pm</p> <input class="time-block col-10" id="time-block17" data-hour="17"> <button class="saveBtn col-1" data-name="time-block17"><i class="fa fa-save"></i></button>
+        </div> 
         
     </div>
     <script>
@@ -72,12 +72,41 @@
       document.write(today);
       $("#currentDay").append(today);
 
+      $("#time-block9").val(localStorage.getItem("time-block9"))
+      $("#time-block10").val(localStorage.getItem("time-block10"))
+      $("#time-block11").val(localStorage.getItem("time-block11"))
+      $("#time-block12").val(localStorage.getItem("time-block12"))
+      $("#time-block13").val(localStorage.getItem("time-block13"))
+      $("#time-block14").val(localStorage.getItem("time-block14"))
+      $("#time-block15").val(localStorage.getItem("time-block15"))
+      $("#time-block16").val(localStorage.getItem("time-block16"))
+      $("#time-block17").val(localStorage.getItem("time-block17"))
       $(document).on("click", ".saveBtn", function(event) {
           event.preventDefault();
           var targetElement = $(this).attr("data-name");
           var newVal = $(`#${targetElement}`).val();
           console.log(`${targetElement}: ${newVal}`);
+          localStorage.setItem(targetElement, newVal);
       });
+      $(".time-block").each(function(){
+        var rowHour = $(this).attr("data-hour")
+        if (rowHour < hour) {
+          $(this).addClass("past")
+        } else if (rowHour == hour) {
+          $(this).addClass("present")
+        } else {
+          $(this).addClass("future")
+        }
+      })
+      // for loop, loop over hours, 
+        // check to see if current number is:
+           // past:
+             // grab the element with data-hour=i and addClass("past")
+           // present:
+             // grab the element with data-hour=i and addClass("current")
+           // future:
+             // grab the element with data-hour=i and addClass("future")
+      
 
       
   </script>
